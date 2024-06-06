@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Bidhuri's Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 5px solid blue;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h2, h3, p, ul, li {
+            color: #000;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Include React and ReactDOM -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Include custom React code -->
+    <script type="text/babel">
+        function Header() {
+            return (
+                <header>
+                    <h1>Piyush Bidhuri's Resume</h1>
+                </header>
+            );
+        }
+
+        function Footer() {
+            return (
+                <footer>
+                    <p>&copy; 2024 Piyush Bidhuri. All rights reserved.</p>
+                </footer>
+            );
+        }
+
+        function ContactInfo() {
+            const [isVisible, setIsVisible] = React.useState(true);
+            return (
+                <section className="section">
+                    <h2>Contact Information</h2>
+                    <button onClick={() => setIsVisible(!isVisible)}>
+                        {isVisible ? 'Hide' : 'Show'} Details
+                    </button>
+                    {isVisible && (
+                        <div>
+                            <p>Email: piyushbidhuri019@gmail.com</p>
+                            <p>Phone: +91 8851024340</p>
+                        </div>
+                    )}
+                </section>
+            );
+        }
+
+        function ProfessionalSummary() {
+            const [isVisible, setIsVisible] = React.useState(true);
+            return (
+                <section className="section">
+                    <h2>Professional Summary</h2>
+                    <button onClick={() => setIsVisible(!isVisible)}>
+                        {isVisible ? 'Hide' : 'Show'} Details
+                    </button>
+                    {isVisible && (
+                        <p>Proactive and highly motivated software student with a background in IT looking for a rewarding learning experience in the web development industry.</p>
+                    )}
+                </section>
+            );
+        }
+
+        function Projects() {
+            const [isVisible, setIsVisible] = React.useState(true);
+            return (
+                <section className="section">
+                    <h2>Projects</h2>
+                    <button onClick={() => setIsVisible(!isVisible)}>
+                        {isVisible ? 'Hide' : 'Show'} Details
+                    </button>
+                    {isVisible && (
+                        <div>
+                            <h3>Object Detection</h3>
+                            <p>Using OpenCV, developed a facial recognition system that identifies objects through cameras.</p>
+                            <p><em>November 2023</em></p>
+                        </div>
+                    )}
+                </section>
+            );
+        }
+
+        function Skills() {
+            const [isVisible, setIsVisible] = React.useState(true);
+            return (
+                <section className="section">
+                    <h2>Skills</h2>
+                    <button onClick={() => setIsVisible(!isVisible)}>
+                        {isVisible ? 'Hide' : 'Show'} Details
+                    </button>
+                    {isVisible && (
+                        <ul>
+                            <li>Languages: Java, Python, JavaScript, C</li>
+                            <li>Technologies: Linux</li>
+                            <li>Concepts: Object-oriented Programming, Web Application, Network Architecture, DBMS</li>
+                        </ul>
+                    )}
+                </section>
+            );
+        }
+
+        function Education() {
+            const [isVisible, setIsVisible] = React.useState(true);
+            return (
+                <section className="section">
+                    <h2>Education</h2>
+                    <button onClick={() => setIsVisible(!isVisible)}>
+                        {isVisible ? 'Hide' : 'Show'} Details
+                    </button>
+                    {isVisible && (
+                        <div>
+                            <h3>Amity University</h3>
+                            <p>Bachelor’s in Computer Applications: (2022 – 2025)</p>
+                            <h3>Wynberg-Allen School Mussoorie Uttarakhand</h3>
+                            <p>(2021)</p>
+                        </div>
+                    )}
+                </section>
+            );
+        }
+
+        function Resume() {
+            return (
+                <div>
+                    <ContactInfo />
+                    <ProfessionalSummary />
+                    <Projects />
+                    <Skills />
+                    <Education />
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div className="container">
+                    <Header />
+                    <Resume />
+                    <Footer />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
